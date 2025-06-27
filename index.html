@@ -6,18 +6,36 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <style>
-    /* ===== minimal CSS ===== */
-    :root         { color-scheme: light dark; }
-    body          { margin: 0; font: 18px/1.45 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    main          { max-width: 480px; margin: 4rem auto; padding: 0 1rem; }
-    h1            { font-size: 32px; margin: 0 0 1.5rem; }
-    h2            { font-size: 22px; margin: 2.5rem 0 1rem; }
-    ul            { list-style: none; margin: 0; padding: 0; }
-    li + li       { margin-top: .4rem; }
-    a             { color: #0033cc; text-decoration: none; }
-    a:hover       { text-decoration: underline; }
-    footer        { text-align: center; margin-top: 4rem; font-size: 16px; }
-    .source-link  { position: fixed; right: 1rem; bottom: 1rem; font-size: 14px; }
+    /* ---------- layout ---------- */
+    :root { color-scheme: light dark; }
+    html,body { height:100%; margin:0; }
+    body      { display:flex; flex-direction:column;
+                font:18px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+                background:#0d0d0d; }
+
+    main      { flex:1 0 auto; max-width:480px; margin:4rem auto 0; padding:0 1rem; }
+    footer    { flex:0 0 auto; max-width:480px; margin:4rem auto 1.5rem; padding:0 1rem;
+                font-size:16px; }
+
+    /* ---------- typography & colors ---------- */
+    h1   { font-size:32px; margin:0 0 1.5rem; color:#ffffff; }
+    h2   { font-size:22px; margin:2.5rem 0 1rem; color:#d0d0d0; }
+    p,li { color:#c0c0c0; }
+    ul   { list-style:none; margin:0; padding:0; }
+    li+li{ margin-top:.4rem; }
+
+    a            { color:#5ea0ff; text-decoration:none; }
+    a:hover      { text-decoration:underline; }
+    footer       { color:#7a7a7a; }
+
+    /* ---------- light theme overrides ---------- */
+    @media (prefers-color-scheme: light) {
+      body        { background:#ffffff; }
+      h1          { color:#000000; }
+      h2, p, li   { color:#4a4a4a; }
+      a           { color:#0033cc; }
+      footer      { color:#777; }
+    }
   </style>
 </head>
 
@@ -30,11 +48,13 @@
       <li><a href="/thechoice/">The Choice: Moral Dilemma — play now</a></li>
     </ul>
 
+    <h2>Blog</h2>
+    <p><a href="https://buildtounderstand.substack.com/">Dev-logs & notes</a></p>
+
     <h2>Contact</h2>
     <p><a href="mailto:shlykovalexei@gmail.com">shlykovalexei@gmail.com</a></p>
   </main>
 
   <footer>© 2025 Alex Shlykov</footer>
-  <a class="source-link" href="https://github.com/AlekseyShlykov/alekseyshlykov.github.io">Source code</a>
 </body>
 </html>
