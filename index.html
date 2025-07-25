@@ -1,50 +1,67 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DP65GTYG1C"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DP65GTYG1C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DP65GTYG1C');
+  </script>
 
-  gtag('config', 'G-DP65GTYG1C');
-</script>
-  
   <meta charset="utf-8">
-  <title>Build to Understand - Alex Shlykov’s Games & Blog</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description"
+        content="Build to Understand — Alex Shlykov’s personal hub for experimental games, dev-notes and contact links.">
+  <title>Build to Understand — Alex Shlykov</title>
 
   <style>
+    /* ---------- design tokens ---------- */
+    :root{
+      --bg:   #ffffff;
+      --txt:  #4a4a4a;
+      --txt-soft:#6e6e6e;
+      --head: #000000;
+      --accent:#0033cc;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0d0d0d;
+        --txt:#c0c0c0;
+        --txt-soft:#9a9a9a;
+        --head:#ffffff;
+        --accent:#5ea0ff;
+      }
+    }
+
     /* ---------- layout ---------- */
-    :root { color-scheme: light dark; }
-    html,body { height:100%; margin:0; }
-    body      { display:flex; flex-direction:column;
-                font:18px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-                background:#0d0d0d; }
+    html,body{height:100%;margin:0;}
+    body{
+      display:flex;flex-direction:column;
+      font:18px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      background:var(--bg);color:var(--txt);
+    }
+    main{flex:1 0 auto;max-width:480px;margin:4rem auto 0;padding:0 1rem;}
+    footer{flex:0 0 auto;max-width:480px;margin:4rem auto 1.5rem;
+           padding:0 1rem;font-size:16px;color:var(--txt-soft);}
 
-    main      { flex:1 0 auto; max-width:480px; margin:4rem auto 0; padding:0 1rem; }
-    footer    { flex:0 0 auto; max-width:480px; margin:4rem auto 1.5rem; padding:0 1rem;
-                font-size:16px; }
+    /* ---------- typography ---------- */
+    h1{font-size:32px;margin:0 0 1.5rem;color:var(--head);}
+    h2{font-size:22px;margin:2.5rem 0 1rem;color:var(--txt-soft);}
 
-    /* ---------- typography & colors ---------- */
-    h1   { font-size:32px; margin:0 0 1.5rem; color:#ffffff; }
-    h2   { font-size:22px; margin:2.5rem 0 1rem; color:#d0d0d0; }
-    p,li { color:#c0c0c0; }
-    ul   { list-style:none; margin:0; padding:0; }
-    li+li{ margin-top:.4rem; }
+    /* ---------- lists ---------- */
+    .list{list-style:none;margin:0;padding:0;}
+    .item+.item{margin-top:1.2rem;}
 
-    a            { color:#5ea0ff; text-decoration:none; }
-    a:hover      { text-decoration:underline; }
-    footer       { color:#7a7a7a; }
+    .item__title{
+      color:var(--accent);text-decoration:none;
+      transition:opacity .15s;
+    }
+    .item__title:hover{opacity:.75;}
 
-    /* ---------- light theme overrides ---------- */
-    @media (prefers-color-scheme: light) {
-      body        { background:#ffffff; }
-      h1          { color:#000000; }
-      h2, p, li   { color:#4a4a4a; }
-      a           { color:#0033cc; }
-      footer      { color:#777; }
+    .tagline{
+      margin:.25rem 0 0;font-size:.9rem;line-height:1.4;color:var(--txt-soft);
     }
   </style>
 </head>
@@ -54,17 +71,31 @@
     <h1>Build to Understand</h1>
 
     <h2>Games</h2>
-    <ul>
-      <li><a href="/thechoice/">The Choice: Moral Dilemma Game</a></li>
-      An interactive journey through the basics of moral philosophy
+    <ul class="list">
+      <li class="item">
+        <a class="item__title" href="/thechoice/">The Choice: Moral Dilemma Game</a>
+        <p class="tagline">An interactive journey through the basics of moral philosophy</p>
+      </li>
     </ul>
 
     <h2>Blog</h2>
-    <p><a href="https://buildtounderstand.substack.com/">My Game‑Dev Notes</a></p>
+    <ul class="list">
+      <li class="item">
+        <a class="item__title" href="https://buildtounderstand.substack.com/" rel="noopener">
+          My Game-Dev Notes
+        </a>
+      </li>
+    </ul>
 
-    <h2>Contacts</h2>
-    <p><a href="mailto:shlykovalexei@gmail.com">Drop me a line</a></p>
-    <p><a href="https://x.com/buildtoundrstnd">X(ex-twitter)</a></p>
+    <h2>Contact</h2>
+    <ul class="list">
+      <li class="item">
+        <a class="item__title" href="mailto:shlykovalexei@gmail.com">Drop me a line</a>
+      </li>
+      <li class="item">
+        <a class="item__title" href="https://x.com/buildtoundrstnd" rel="noopener">X (Twitter)</a>
+      </li>
+    </ul>
   </main>
 
   <footer>© 2025 Alex Shlykov</footer>
