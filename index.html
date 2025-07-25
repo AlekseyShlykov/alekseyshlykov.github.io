@@ -64,6 +64,33 @@
     .tagline{
       margin:.25rem 0 0;font-size:.9rem;line-height:1.4;color:var(--txt-soft);
     }
+    /* ---- desktop tweaks ---- */
+h2{
+  margin: 2rem 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* ссылкам чуть больше жизни */
+a{
+  color: var(--accent, #2998ff);
+  transition: color .15s, transform .15s;
+}
+a:hover{
+  transform: translateX(2px);
+}
+
+/* кликабельная зона для мобильного тапа */
+.item__title{
+  display: inline-block;
+  padding: .25rem .125rem;
+}
+
+/* ---- mobile (<600px) ---- */
+@media (max-width:600px){
+  h2{ margin: 1.5rem 0 .75rem; }
+  footer{ margin-bottom: 3.5rem; }      /* не прячется за Safari bar */
+}
   </style>
 </head>
 
