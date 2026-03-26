@@ -154,6 +154,13 @@ a:hover{
   object-fit:cover;display:block;
   transition:transform .25s, opacity .2s;
 }
+.game-card__img--theworld{
+  object-position:center 100%;
+}
+.game-card__img--thebrain{
+  object-fit:contain;
+  object-position:center;
+}
 .game-card:hover .game-card__img{
   transform:scale(1.05);
 }
@@ -207,14 +214,14 @@ a:hover{
         </div>
       </a>
       <a class="game-card" href="https://buildtounderstand.dev/theworld/">
-        <img class="game-card__img" src="assets/theworld.png" alt="The Evolution of Civilizations">
+        <img class="game-card__img game-card__img--theworld" src="assets/theworld.png" alt="The Evolution of Civilizations">
         <div class="game-card__info">
           <span class="game-card__title">The Evolution of Civilizations</span>
           <p class="game-card__desc">Trace the forces that shaped the rise and fall of civilizations</p>
         </div>
       </a>
       <a class="game-card" href="https://buildtounderstand.dev/thebrain/">
-        <img class="game-card__img" src="assets/thebrain.png" alt="How the Brain Shapes Behavior">
+        <img class="game-card__img game-card__img--thebrain" src="assets/thebrain.png" alt="How the Brain Shapes Behavior">
         <div class="game-card__info">
           <span class="game-card__title">How the Brain Shapes Behavior</span>
           <p class="game-card__desc">Discover which brain systems drive your everyday decisions</p>
