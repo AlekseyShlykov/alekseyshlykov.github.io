@@ -1,0 +1,20 @@
+# Build to Understand
+
+> Build to Understand is Alex Shlykov's personal project — a collection of interactive browser games designed to teach complex ideas through play. Some games help you understand concepts from philosophy, history, and neuroscience; others create immersive emotional experiences.
+
+## Games to Learn From
+
+- [The Choice](https://thechoice.quest/): An interactive journey through the foundations of moral philosophy
+- [The Evolution of Civilizations](https://buildtounderstand.dev/theworld/): Trace the forces that shaped the rise and fall of civilizations
+- [How the Brain Shapes Behavior](https://buildtounderstand.dev/thebrain/): Discover which brain systems drive your everyday decisions
+
+## Games to Feel
+
+- [The Village](https://buildtounderstand.dev/thevillage/): Remember that childhood feeling when the dark forest is already watching, and you run home at the very last moment
+
+## Links
+
+- [Main site](https://buildtounderstand.dev/)
+- [Substack newsletter](https://buildtounderstand.substack.com/)
+- [Patreon](https://patreon.com/buildtounderstand)
+- [Email](mailto:buildtounderstand@gmail.com)
