@@ -25,6 +25,7 @@
       --txt-soft:#6e6e6e;
       --head: #000000;
       --accent:#0033cc;
+      --warm: #e8783a;
     }
     @media (prefers-color-scheme: dark){
       :root{
@@ -33,6 +34,7 @@
         --txt-soft:#9a9a9a;
         --head:#ffffff;
         --accent:#5ea0ff;
+        --warm: #f0915a;
       }
       body{
         background:
@@ -40,7 +42,6 @@
           url(assets/back.png) center / cover no-repeat fixed;
       }
       main{box-shadow:0 2px 24px rgba(0,0,0,.4);}
-      .subscribe-input:focus{box-shadow:0 0 0 3px rgba(94,160,255,.2);}
     }
 
     /* ---------- layout ---------- */
@@ -61,7 +62,12 @@
            padding:0 1rem;font-size:16px;color:var(--txt-soft);}
 
     /* ---------- typography ---------- */
-    h1{font-size:32px;margin:0 0 1.5rem;color:var(--head);}
+    h1{font-size:32px;margin:0 0 1.5rem;color:var(--head);position:relative;padding-bottom:.6rem;}
+    h1::after{
+      content:'';position:absolute;left:0;bottom:0;
+      width:40px;height:3px;border-radius:2px;
+      background:var(--warm);
+    }
     h2{font-size:22px;margin:2.5rem 0 1rem;color:var(--txt-soft);}
     h3{
       font-size:18px;
@@ -103,12 +109,14 @@ a:hover{
   display:flex;flex-direction:column;align-items:stretch;gap:.75rem;
   text-decoration:none;color:inherit;
   padding:.75rem;border-radius:12px;
-  transition:background .2s, box-shadow .25s, transform .2s;
+  border-bottom:2px solid transparent;
+  transition:background .2s, box-shadow .25s, transform .2s, border-color .25s;
 }
 .game-card:hover{
   background:rgba(128,128,128,.07);
   box-shadow:0 4px 20px rgba(128,128,128,.1);
   transform:translateY(-2px);
+  border-bottom-color:var(--warm);
 }
 .game-card__img{
   width:100%;height:180px;border-radius:10px;
@@ -127,38 +135,18 @@ a:hover{
 .game-card__desc{
   margin:.15rem 0 0;font-size:.84rem;line-height:1.35;color:var(--txt-soft);
 }
-.subscribe-form{
-  display:flex;gap:.5rem;margin-top:.5rem;
+.substack-embed{
+  margin-top:.5rem;border-radius:10px;overflow:hidden;
+  border:1px solid rgba(128,128,128,.15);
 }
-.subscribe-input{
-  flex:1;padding:.6rem .75rem;
-  font:inherit;font-size:.9rem;
-  border:1px solid rgba(128,128,128,.25);
-  border-radius:8px;
-  background:var(--bg);color:var(--txt);
-  outline:none;
-  transition:border-color .2s, box-shadow .2s;
+.substack-embed iframe{
+  width:100%;display:block;
 }
-.subscribe-input:focus{
-  border-color:var(--accent);
-  box-shadow:0 0 0 3px rgba(0,51,204,.12);
+.prose{
+  font-size:.95rem;line-height:1.6;color:var(--txt);margin:0;
 }
-.subscribe-btn{
-  padding:.6rem 1.2rem;
-  font:inherit;font-size:.9rem;font-weight:600;
-  border:none;border-radius:8px;cursor:pointer;
-  background:var(--accent);color:#fff;
-  transition:opacity .2s, transform .15s;
-}
-.subscribe-btn:hover{opacity:.85;transform:translateY(-1px);}
-.subscribe-btn:active{transform:translateY(0);}
-.subscribe-btn:disabled{opacity:.5;cursor:default;transform:none;}
-.subscribe-note{
-  margin:.25rem 0 0;font-size:.8rem;color:var(--txt-soft);
-}
-.subscribe-msg{
-  margin:.6rem 0 0;font-size:.85rem;color:var(--accent);
-}
+.prose+.prose{margin-top:.6rem;}
+.prose a{text-decoration-thickness:1px;text-underline-offset:2px;}
 
 /* ---- mobile (<600px) ---- */
 @media (max-width:600px){
@@ -173,6 +161,10 @@ a:hover{
 <body>
   <main>
     <h1>Build to Understand</h1>
+
+    <p class="prose">Hi, I'm Alex.</p>
+    <p class="prose">I make small games. Some help you understand things, some help you feel them.</p>
+    <p class="prose">You can try them below.</p>
 
     <h2>Games to Learn From</h2>
     <div class="game-list">
@@ -205,7 +197,7 @@ a:hover{
         <img class="game-card__img" src="assets/thevillage.png" alt="The Village">
         <div class="game-card__info">
           <span class="game-card__title">The Village</span>
-          <p class="game-card__desc">Step into a small community and feel the weight of human connection</p>
+          <p class="game-card__desc">Remember that childhood feeling when the dark forest is already watching, and you run home at the very last moment</p>
         </div>
       </a>
       <a class="game-card" href="https://buildtounderstand.dev/diplomacy/">
@@ -216,49 +208,17 @@ a:hover{
         </div>
       </a>
     </div>
-    <h2>Subscribe to get updates and new games</h2>
-    <form id="subscribe-form" class="subscribe-form">
-      <input class="subscribe-input" type="email" placeholder="Your email" required>
-      <button class="subscribe-btn" type="submit">Subscribe</button>
-    </form>
-    <p class="subscribe-note">A short email when a new game goes live. No spam.</p>
-    <p id="subscribe-msg" class="subscribe-msg" hidden></p>
+    <h2 id="subscribe">Subscribe to get updates and new games</h2>
+    <div class="substack-embed">
+      <iframe src="https://buildtounderstand.substack.com/embed" width="480" height="150" style="border:none;background:white;" frameborder="0" scrolling="no"></iframe>
+    </div>
 
     <h2>Reach Out</h2>
-    <ul class="list">
-      <li class="item">
-        <a class="item__title" href="mailto:buildtounderstand@gmail.com">Drop me a line</a>
-      </li>
-      <li class="item">
-        <a class="item__title" href="https://patreon.com/buildtounderstand" rel="noopener">Support me</a>
-      </li>
-    </ul>
+    <p class="prose">If you'd like to collaborate, or simply share feedback — feel free to <a href="mailto:buildtounderstand@gmail.com">drop me a line</a>.</p>
+    <p class="prose">If you enjoy what I make, you can also support me on <a href="https://patreon.com/buildtounderstand" rel="noopener">Patreon</a>.</p>
   </main>
 
   <footer>© 2025-2026 Alex Shlykov</footer>
 
-  <script>
-  document.getElementById('subscribe-form').addEventListener('submit',async function(e){
-    e.preventDefault();
-    var input=this.querySelector('input'),btn=this.querySelector('button'),
-        msg=document.getElementById('subscribe-msg'),email=input.value;
-    btn.disabled=true;btn.textContent='…';
-    try{
-      var r=await fetch('https://buildtounderstand.substack.com/api/v1/free',{
-        method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({email:email,first_url:location.href,
-          first_referrer:document.referrer,current_url:location.href,
-          current_referrer:document.referrer})
-      });
-      if(!r.ok)throw 0;
-      msg.textContent='Check your inbox to confirm!';
-      msg.hidden=false;input.value='';
-    }catch(_){
-      window.open('https://buildtounderstand.substack.com/subscribe?simple=true&email='+encodeURIComponent(email),'_blank');
-      msg.textContent='Opening Substack…';msg.hidden=false;
-    }
-    btn.disabled=false;btn.textContent='Subscribe';
-  });
-  </script>
 </body>
 </html>
