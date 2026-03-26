@@ -45,7 +45,7 @@
     }
 
     /* ---------- layout ---------- */
-    html,body{height:100%;margin:0;}
+    html,body{height:100%;margin:0;overflow-x:hidden;}
     body{
       display:flex;flex-direction:column;
       font:18px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
@@ -108,7 +108,7 @@ a:hover{
 .game-card{
   display:flex;flex-direction:column;align-items:stretch;gap:.75rem;
   text-decoration:none;color:inherit;
-  padding:.75rem;border-radius:12px;
+  padding:.75rem;border-radius:12px;overflow:hidden;
   border-bottom:2px solid transparent;
   transition:background .2s, box-shadow .25s, transform .2s, border-color .25s;
 }
@@ -140,7 +140,7 @@ a:hover{
   border:1px solid rgba(128,128,128,.15);
 }
 .substack-embed iframe{
-  width:100%;display:block;
+  width:100%;max-width:100%;display:block;
 }
 .prose{
   font-size:.95rem;line-height:1.6;color:var(--txt);margin:0;
