@@ -34,6 +34,13 @@
         --head:#ffffff;
         --accent:#5ea0ff;
       }
+      body{
+        background:
+          linear-gradient(rgba(13,13,13,.85),rgba(13,13,13,.85)),
+          url(assets/back.png) center / cover no-repeat fixed;
+      }
+      main{box-shadow:0 2px 24px rgba(0,0,0,.4);}
+      .subscribe-input:focus{box-shadow:0 0 0 3px rgba(94,160,255,.2);}
     }
 
     /* ---------- layout ---------- */
@@ -41,9 +48,15 @@
     body{
       display:flex;flex-direction:column;
       font:18px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-      background:var(--bg);color:var(--txt);
+      color:var(--txt);
+      background:var(--bg) url(assets/back.png) center / cover no-repeat fixed;
     }
-    main{flex:1 0 auto;max-width:480px;margin:4rem auto 0;padding:0 1rem;}
+    main{
+      flex:1 0 auto;width:100%;max-width:480px;box-sizing:border-box;
+      margin:3rem auto 0;padding:2rem 1.5rem;
+      background:var(--bg);border-radius:16px;
+      box-shadow:0 1px 12px rgba(0,0,0,.06);
+    }
     footer{flex:0 0 auto;max-width:480px;margin:4rem auto 1.5rem;
            padding:0 1rem;font-size:16px;color:var(--txt-soft);}
 
@@ -84,10 +97,75 @@ a:hover{
   padding: .25rem .125rem;
 }
 
+/* ---------- game cards ---------- */
+.game-list{display:flex;flex-direction:column;gap:.25rem;}
+.game-card{
+  display:flex;flex-direction:column;align-items:stretch;gap:.75rem;
+  text-decoration:none;color:inherit;
+  padding:.75rem;border-radius:12px;
+  transition:background .2s, box-shadow .25s, transform .2s;
+}
+.game-card:hover{
+  background:rgba(128,128,128,.07);
+  box-shadow:0 4px 20px rgba(128,128,128,.1);
+  transform:translateY(-2px);
+}
+.game-card__img{
+  width:100%;height:180px;border-radius:10px;
+  object-fit:cover;display:block;
+  transition:transform .25s, opacity .2s;
+}
+.game-card:hover .game-card__img{
+  transform:scale(1.05);
+}
+.game-card__info{display:flex;flex-direction:column;}
+.game-card__title{
+  font-size:1rem;font-weight:600;color:var(--accent);
+  transition:opacity .15s;
+}
+.game-card:hover .game-card__title{opacity:.8;}
+.game-card__desc{
+  margin:.15rem 0 0;font-size:.84rem;line-height:1.35;color:var(--txt-soft);
+}
+.subscribe-form{
+  display:flex;gap:.5rem;margin-top:.5rem;
+}
+.subscribe-input{
+  flex:1;padding:.6rem .75rem;
+  font:inherit;font-size:.9rem;
+  border:1px solid rgba(128,128,128,.25);
+  border-radius:8px;
+  background:var(--bg);color:var(--txt);
+  outline:none;
+  transition:border-color .2s, box-shadow .2s;
+}
+.subscribe-input:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(0,51,204,.12);
+}
+.subscribe-btn{
+  padding:.6rem 1.2rem;
+  font:inherit;font-size:.9rem;font-weight:600;
+  border:none;border-radius:8px;cursor:pointer;
+  background:var(--accent);color:#fff;
+  transition:opacity .2s, transform .15s;
+}
+.subscribe-btn:hover{opacity:.85;transform:translateY(-1px);}
+.subscribe-btn:active{transform:translateY(0);}
+.subscribe-btn:disabled{opacity:.5;cursor:default;transform:none;}
+.subscribe-note{
+  margin:.25rem 0 0;font-size:.8rem;color:var(--txt-soft);
+}
+.subscribe-msg{
+  margin:.6rem 0 0;font-size:.85rem;color:var(--accent);
+}
+
 /* ---- mobile (<600px) ---- */
 @media (max-width:600px){
   h2{ margin: 1.5rem 0 .75rem; }
-  footer{ margin-bottom: 3.5rem; }      /* не прячется за Safari bar */
+  main{ margin:1.5rem .75rem 0; border-radius:12px; padding:1.5rem 1.25rem; }
+  .game-card__img{height:150px;}
+  footer{ margin-bottom: 3.5rem; }
 }
   </style>
 </head>
@@ -96,30 +174,55 @@ a:hover{
   <main>
     <h1>Build to Understand</h1>
 
-    <h2>Play</h2>
-    <h3>Educational Interactive Longreads</h3>
-    <ul class="list">
-      <li class="item">
-        <a class="item__title" href="/theworld/">The Evolution of Civilizations</a>
-        <p class="tagline">A short interactive story about the factors that shaped the rise of civilizations</p>
-        <p></p>
-        <a class="item__title" href="/thechoice/">The Choice: Moral Dilemma Game (beta)</a>
-        <p class="tagline">An interactive journey through the basics of moral philosophy</p>
-      </li>
-    </ul>
+    <h2>Games to Learn From</h2>
+    <div class="game-list">
+      <a class="game-card" href="https://thechoice.quest/">
+        <img class="game-card__img" src="assets/thechoice.png" alt="The Choice">
+        <div class="game-card__info">
+          <span class="game-card__title">The Choice</span>
+          <p class="game-card__desc">An interactive journey through the foundations of moral philosophy</p>
+        </div>
+      </a>
+      <a class="game-card" href="https://buildtounderstand.dev/theworld/">
+        <img class="game-card__img" src="assets/theworld.png" alt="The Evolution of Civilizations">
+        <div class="game-card__info">
+          <span class="game-card__title">The Evolution of Civilizations</span>
+          <p class="game-card__desc">Trace the forces that shaped the rise and fall of civilizations</p>
+        </div>
+      </a>
+      <a class="game-card" href="https://buildtounderstand.dev/thebrain/">
+        <img class="game-card__img" src="assets/thebrain.png" alt="How the Brain Shapes Behavior">
+        <div class="game-card__info">
+          <span class="game-card__title">How the Brain Shapes Behavior</span>
+          <p class="game-card__desc">Discover which brain systems drive your everyday decisions</p>
+        </div>
+      </a>
+    </div>
 
-    <h3>Quizes</h3>
-     <ul class="list">
-      <li class="item">
-        <a class="item__title" href="/the brain/">How the Brain Shapes Behavior</a>
-        <p class="tagline">Learn to recognize which brain system is active in different life situations</p>
-        <p></p>
-        <a class="item__title" href="/hobby/">Hobby Finder</a>
-        <p class="tagline">Take a 5-minute personality test and discover hobbies that match who you are</p>
-      </li>
-     </ul>
+    <h2>Games to Feel</h2>
+    <div class="game-list">
+      <a class="game-card" href="https://buildtounderstand.dev/thevillage/">
+        <img class="game-card__img" src="assets/thevillage.png" alt="The Village">
+        <div class="game-card__info">
+          <span class="game-card__title">The Village</span>
+          <p class="game-card__desc">Step into a small community and feel the weight of human connection</p>
+        </div>
+      </a>
+      <a class="game-card" href="https://buildtounderstand.dev/diplomacy/">
+        <img class="game-card__img" src="assets/diplomacy.png" alt="Diplomacy">
+        <div class="game-card__info">
+          <span class="game-card__title">Diplomacy</span>
+          <p class="game-card__desc">Negotiate alliances and test the limits of trust</p>
+        </div>
+      </a>
+    </div>
     <h2>Subscribe to get updates and new games</h2>
-    <iframe src="https://buildtounderstand.substack.com/embed" width="480" height="150" style="border: 1px solid #EEE; background: white" frameborder="0" scrolling="no"></iframe>
+    <form id="subscribe-form" class="subscribe-form">
+      <input class="subscribe-input" type="email" placeholder="Your email" required>
+      <button class="subscribe-btn" type="submit">Subscribe</button>
+    </form>
+    <p class="subscribe-note">A short email when a new game goes live. No spam.</p>
+    <p id="subscribe-msg" class="subscribe-msg" hidden></p>
 
     <h2>Reach Out</h2>
     <ul class="list">
@@ -127,11 +230,35 @@ a:hover{
         <a class="item__title" href="mailto:buildtounderstand@gmail.com">Drop me a line</a>
       </li>
       <li class="item">
-        <a class="item__title" href="https://x.com/buildtoundrstnd" rel="noopener">X (Twitter)</a>
+        <a class="item__title" href="https://patreon.com/buildtounderstand" rel="noopener">Support me</a>
       </li>
     </ul>
   </main>
 
   <footer>© 2025-2026 Alex Shlykov</footer>
+
+  <script>
+  document.getElementById('subscribe-form').addEventListener('submit',async function(e){
+    e.preventDefault();
+    var input=this.querySelector('input'),btn=this.querySelector('button'),
+        msg=document.getElementById('subscribe-msg'),email=input.value;
+    btn.disabled=true;btn.textContent='…';
+    try{
+      var r=await fetch('https://buildtounderstand.substack.com/api/v1/free',{
+        method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({email:email,first_url:location.href,
+          first_referrer:document.referrer,current_url:location.href,
+          current_referrer:document.referrer})
+      });
+      if(!r.ok)throw 0;
+      msg.textContent='Check your inbox to confirm!';
+      msg.hidden=false;input.value='';
+    }catch(_){
+      window.open('https://buildtounderstand.substack.com/subscribe?simple=true&email='+encodeURIComponent(email),'_blank');
+      msg.textContent='Opening Substack…';msg.hidden=false;
+    }
+    btn.disabled=false;btn.textContent='Subscribe';
+  });
+  </script>
 </body>
 </html>
