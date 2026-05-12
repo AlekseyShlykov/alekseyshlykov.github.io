@@ -11,6 +11,7 @@
 ## Games to Feel
 
 - [The Village](https://buildtounderstand.dev/thevillage/): Remember that childhood feeling when the dark forest is already watching, and you run home at the very last moment
+- [Reasonable Doubt](https://buildtounderstand.dev/reasonabledoubt/): A moral choice game about predictive justice, probability, and the limits of certainty.
 
 ## Links
 
