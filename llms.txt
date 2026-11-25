@@ -10,7 +10,7 @@
 
 ## Games to Feel
 
-- [The Village](https://buildtounderstand.dev/thevillage/): Remember that childhood feeling when the dark forest is already watching, and you run home at the very last moment
+- [Before Winter Comes](https://buildtounderstand.dev/thevillage/): A browser village survival strategy.
 - [Reasonable Doubt](https://buildtounderstand.dev/reasonabledoubt/): A choice game that lets you feel the weight of predictive justice and uncertain decisions.
 
 ## Links
